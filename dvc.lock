@@ -1,0 +1,42 @@
+schema: '2.0'
+stages:
+  data_sampling:
+    cmd: python src/data_preprocessing/data_sampling.py
+    deps:
+    - path: data/malicious_urls.csv
+      hash: md5
+      md5: 21cb05162d65d0373feb60b67ebb21ba
+      size: 46606390
+    - path: src/data_preprocessing/data_preprocessing_utils.py
+      hash: md5
+      md5: 893b8efd80c9a4caf83117d745c8ef6d
+      size: 6923
+    - path: src/data_preprocessing/data_sampling.py
+      hash: md5
+      md5: b8f7956ea78f45b18546b93f72a1e076
+      size: 1211
+    outs:
+    - path: data/malicious_urls_sampled.csv
+      hash: md5
+      md5: aac4dfe64af7d6da878414ce298c608f
+      size: 1554986
+  data_preprocessing:
+    cmd: python src/data_preprocessing/data_preprocessing.py
+    deps:
+    - path: data/malicious_urls_sampled.csv
+      hash: md5
+      md5: aac4dfe64af7d6da878414ce298c608f
+      size: 1554986
+    - path: src/data_preprocessing/data_preprocessing.py
+      hash: md5
+      md5: 35838b7594cee6f9f5e6210b91f29770
+      size: 1586
+    - path: src/data_preprocessing/data_preprocessing_utils.py
+      hash: md5
+      md5: 893b8efd80c9a4caf83117d745c8ef6d
+      size: 6923
+    outs:
+    - path: data/urls_with_features.csv
+      hash: md5
+      md5: e9584eee32d8af3b0a2e9d27c79cff2d
+      size: 158384
