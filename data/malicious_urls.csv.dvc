@@ -1,5 +1,0 @@
-outs:
-- md5: 21cb05162d65d0373feb60b67ebb21ba
-  size: 46606390
-  hash: md5
-  path: malicious_urls.csv
